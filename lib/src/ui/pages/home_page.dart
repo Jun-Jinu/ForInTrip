@@ -1,23 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../screens/home_screen.dart';
 import 'package:for_in_trip/src/bloc/home_bloc.dart';
 
-class HomePage extends StatefulWidget {
-  static const String routeName = '/home';
-
-  @override
-  _HomePageState createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  final _homeBloc = HomeBloc(UnHomeState());
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Home'),
+    return MaterialApp(
+      title: 'Counter App',
+      home: BlocProvider<CounterBloc>(
+        create: (BuildContext context) => CounterBloc(),
+        child: CounterScreen(),
       ),
-      body: HomeScreen(homeBloc: _homeBloc),
     );
   }
 }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:for_in_trip/src/you_awesome/index.dart';
+import 'package:for_in_trip/src/BLoC_Ex/index.dart';
 
 class YouAwesomePage extends StatefulWidget {
   static const String routeName = '/youAwesome';
