@@ -8,12 +8,9 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Counter App',
-      home: BlocProvider<CounterBloc>(
-        create: (BuildContext context) => CounterBloc(),
-        child: CounterScreen(),
-      ),
+    return BlocProvider<CounterBloc>(
+      create: (BuildContext context) => CounterBloc(),
+      child: const HomeScreen(),
     );
   }
 }
