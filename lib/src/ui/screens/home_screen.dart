@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../theme/app_color.dart';
+import '../widgets/bottom_bar.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:for_in_trip/src/bloc/home_bloc.dart';
 
@@ -148,6 +149,7 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
       ),
+      bottomNavigationBar: const BottomBar(),
     );
   }
 }
