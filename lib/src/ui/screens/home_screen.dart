@@ -3,6 +3,8 @@ import '../theme/app_color.dart';
 import '../widgets/bottom_bar.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:for_in_trip/src/bloc/home_bloc.dart';
+// import 'package:naver_map_plugin/naver_map_plugin.dart';
+import 'dart:async';
 
 class Category {
   final String name;
@@ -20,30 +22,6 @@ List<Category> categories = [
   Category(name: 'Category 6', image: 'images/bd.jpg'),
   Category(name: 'Category 7', image: 'images/gw.jpg'),
   Category(name: 'Category 8', image: 'images/gw.jpg'),
-  Category(name: 'Category 1', image: 'images/bd.jpg'),
-  Category(name: 'Category 2', image: 'images/bz.jpg'),
-  Category(name: 'Category 3', image: 'images/bz.jpg'),
-  Category(name: 'Category 4', image: 'images/ep.jpg'),
-  Category(name: 'Category 5', image: 'images/ep.jpg'),
-  Category(name: 'Category 6', image: 'images/bd.jpg'),
-  Category(name: 'Category 7', image: 'images/gw.jpg'),
-  Category(name: 'Category 8', image: 'images/gw.jpg'),
-  Category(name: 'Category 1', image: 'images/bd.jpg'),
-  Category(name: 'Category 2', image: 'images/bz.jpg'),
-  Category(name: 'Category 3', image: 'images/bz.jpg'),
-  Category(name: 'Category 4', image: 'images/ep.jpg'),
-  Category(name: 'Category 5', image: 'images/ep.jpg'),
-  Category(name: 'Category 6', image: 'images/bd.jpg'),
-  Category(name: 'Category 7', image: 'images/gw.jpg'),
-  Category(name: 'Category 8', image: 'images/gw.jpg'),
-  Category(name: 'Category 1', image: 'images/bd.jpg'),
-  Category(name: 'Category 2', image: 'images/bz.jpg'),
-  Category(name: 'Category 3', image: 'images/bz.jpg'),
-  Category(name: 'Category 4', image: 'images/ep.jpg'),
-  Category(name: 'Category 5', image: 'images/ep.jpg'),
-  Category(name: 'Category 6', image: 'images/bd.jpg'),
-  Category(name: 'Category 7', image: 'images/gw.jpg'),
-  Category(name: 'Category 8', image: 'images/gw.jpg'),
 ];
 
 class HomeScreen extends StatelessWidget {
@@ -51,7 +29,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const categoryRowItemCount = 6;
+    const categoryRowItemCount = 5;
     const categoryItemSpacing = 10.0;
     final mediaSize = MediaQuery.of(context).size;
     final double itemSize = ((mediaSize.width -
@@ -62,9 +40,17 @@ class HomeScreen extends StatelessWidget {
 
     final CounterBloc counterBloc = BlocProvider.of<CounterBloc>(context);
 
+    // Completer<NaverMapController> _controller = Completer();
+    // MapType _mapType = MapType.Basic;
+    //
+    // void onMapCreated(NaverMapController controller) {
+    //   if (_controller.isCompleted) _controller = Completer();
+    //   _controller.complete(controller);
+    // }
+
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(100.0),
+        preferredSize: const Size.fromHeight(100.0),
         child: Padding(
           padding: const EdgeInsets.all(15.0),
           child: AppBar(
@@ -105,6 +91,12 @@ class HomeScreen extends StatelessWidget {
           child: Column(
             // mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              // Container(
+              //   child: NaverMap(
+              //     onMapCreated: onMapCreated,
+              //     mapType: _mapType,
+              //   ),
+              // ),
               // BlocBuilder<CounterBloc, int>(
               //   builder: (context, count) {
               //     return Text(
@@ -118,7 +110,7 @@ class HomeScreen extends StatelessWidget {
                 itemCount: (categories.length <= 24 ? categories.length : 24),
                 shrinkWrap: true,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 6,
+                  crossAxisCount: categoryRowItemCount,
                   crossAxisSpacing: categoryItemSpacing,
                   mainAxisSpacing: categoryItemSpacing,
                 ),
@@ -139,7 +131,7 @@ class HomeScreen extends StatelessWidget {
                       SizedBox(height: 2.0),
                       Text(
                         categories[index].name,
-                        style: TextStyle(fontSize: 14.0),
+                        style: const TextStyle(fontSize: 14.0),
                       ),
                     ],
                   );

@@ -1,4 +1,4 @@
-package com.example.for_in_trip
+package com.example.ForInTrip
 
 import io.flutter.embedding.android.FlutterActivity
 

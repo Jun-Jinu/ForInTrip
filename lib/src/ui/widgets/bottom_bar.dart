@@ -14,12 +14,12 @@ class _BottomBarState extends State<BottomBar>
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 4, vsync: this);
+    _tabController = TabController(length: 4, vsync: this, initialIndex: 0);
   }
 
   @override
   void dispose() {
-    _tabController?.dispose();
+    _tabController!.dispose();
     super.dispose();
   }
 
@@ -28,7 +28,7 @@ class _BottomBarState extends State<BottomBar>
     return Container(
       color: Colors.black,
       child: Container(
-        height: 50,
+        height: 60,
         child: TabBar(
           controller: _tabController, // TabController 연결
           labelColor: Colors.white,
