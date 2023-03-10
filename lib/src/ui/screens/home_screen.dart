@@ -85,59 +85,101 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(15.0),
-        child: Center(
-          child: Column(
-            // mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              // Container(
-              //   child: NaverMap(
-              //     onMapCreated: onMapCreated,
-              //     mapType: _mapType,
-              //   ),
-              // ),
-              // BlocBuilder<CounterBloc, int>(
-              //   builder: (context, count) {
-              //     return Text(
-              //       '$count',
-              //       style: TextStyle(fontSize: 48.0),
-              //     );
-              //   },
-              // ),
-              // SizedBox(height: 24.0),
-              GridView.builder(
-                itemCount: (categories.length <= 24 ? categories.length : 24),
-                shrinkWrap: true,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: categoryRowItemCount,
-                  crossAxisSpacing: categoryItemSpacing,
-                  mainAxisSpacing: categoryItemSpacing,
-                ),
-                itemBuilder: (context, index) {
-                  return Column(
-                    children: [
-                      Container(
-                        height: itemSize,
-                        width: itemSize,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage(categories[index].image),
-                            fit: BoxFit.cover,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(15.0),
+          child: Center(
+            child: Column(
+              // mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                // Container(
+                //   child: NaverMap(
+                //     onMapCreated: onMapCreated,
+                //     mapType: _mapType,
+                //   ),
+                // ),
+                // BlocBuilder<CounterBloc, int>(
+                //   builder: (context, count) {
+                //     return Text(
+                //       '$count',
+                //       style: TextStyle(fontSize: 48.0),
+                //     );
+                //   },
+                // ),
+                // SizedBox(height: 24.0),
+                GridView.builder(
+                  itemCount: (categories.length <= 24 ? categories.length : 24),
+                  shrinkWrap: true,
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: categoryRowItemCount,
+                    crossAxisSpacing: categoryItemSpacing,
+                    mainAxisSpacing: categoryItemSpacing,
+                  ),
+                  itemBuilder: (context, index) {
+                    return Column(
+                      children: [
+                        Container(
+                          height: itemSize,
+                          width: itemSize,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: AssetImage(categories[index].image),
+                              fit: BoxFit.cover,
+                            ),
+                            borderRadius: BorderRadius.circular(15),
                           ),
-                          borderRadius: BorderRadius.circular(15),
                         ),
+                        SizedBox(height: 2.0),
+                        Text(
+                          categories[index].name,
+                          style: const TextStyle(fontSize: 14.0),
+                        ),
+                      ],
+                    );
+                  },
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 30.0),
+                  child: InkWell(
+                    onTap: () => {},
+                    child: Card(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
                       ),
-                      SizedBox(height: 2.0),
-                      Text(
-                        categories[index].name,
-                        style: const TextStyle(fontSize: 14.0),
+                      elevation: 4,
+                      child: Column(
+                        children: [
+                          // 카드 이미지
+                          Container(
+                            height: 150,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.vertical(
+                                top: Radius.circular(10),
+                              ),
+                              image: DecorationImage(
+                                image: NetworkImage(
+                                  'https://picsum.photos/200',
+                                ),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                          // ListTile
+                          ListTile(
+                            title: Text('Do you know BTS?'),
+                            subtitle: Text('Find out where k-pop is related!'),
+                            trailing: Icon(Icons.arrow_forward),
+                            onTap: () {
+                              // 리스트 타일 클릭 시 동작
+                            },
+                          ),
+                        ],
                       ),
-                    ],
-                  );
-                },
-              ),
-            ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
