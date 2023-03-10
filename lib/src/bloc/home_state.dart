@@ -9,7 +9,6 @@ abstract class HomeState extends Equatable {
 
 /// UnInitialized
 class UnHomeState extends HomeState {
-
   UnHomeState();
 
   @override
@@ -19,7 +18,7 @@ class UnHomeState extends HomeState {
 /// Initialized
 class InHomeState extends HomeState {
   InHomeState(this.hello);
-  
+
   final String hello;
 
   @override
@@ -31,9 +30,9 @@ class InHomeState extends HomeState {
 
 class ErrorHomeState extends HomeState {
   ErrorHomeState(this.errorMessage);
- 
+
   final String errorMessage;
-  
+
   @override
   String toString() => 'ErrorHomeState';
 
