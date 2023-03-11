@@ -4,6 +4,7 @@ import '../widgets/bottom_bar.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:for_in_trip/src/bloc/home_bloc.dart';
 // import 'package:naver_map_plugin/naver_map_plugin.dart';
+import 'package:for_in_trip/src/ui/pages/category_page.dart';
 import 'dart:async';
 
 class Category {
@@ -65,21 +66,9 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
             ),
-            // Icon(
-            //   Icons.arrow_back_ios,
-            //   color: Colors.black,
-            // ),
-            // title: Text(
-            //   '청원게시판',
-            //   style: TextStyle(
-            //     fontSize: 18.0,
-            //     color: Colors.black,
-            //   ),
-            // ),
             actions: <Widget>[
               IconButton(icon: Icon(Icons.notifications), onPressed: null),
             ],
-            centerTitle: true,
             backgroundColor: transparent,
             elevation: 0,
           ),
@@ -141,7 +130,12 @@ class HomeScreen extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 30.0),
                   child: InkWell(
-                    onTap: () => {},
+                    onTap: () => {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => CategoryPage()),
+                      ),
+                    },
                     child: Card(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
@@ -170,7 +164,11 @@ class HomeScreen extends StatelessWidget {
                             subtitle: Text('Find out where k-pop is related!'),
                             trailing: Icon(Icons.arrow_forward),
                             onTap: () {
-                              // 리스트 타일 클릭 시 동작
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => CategoryPage()),
+                              );
                             },
                           ),
                         ],
