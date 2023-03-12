@@ -4,6 +4,7 @@ import '../widgets/bottom_bar.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:for_in_trip/src/bloc/home_bloc.dart';
 // import 'package:naver_map_plugin/naver_map_plugin.dart';
+import 'package:for_in_trip/src/ui/pages/category_page.dart';
 import 'dart:async';
 
 class Category {
@@ -65,79 +66,118 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
             ),
-            // Icon(
-            //   Icons.arrow_back_ios,
-            //   color: Colors.black,
-            // ),
-            // title: Text(
-            //   '청원게시판',
-            //   style: TextStyle(
-            //     fontSize: 18.0,
-            //     color: Colors.black,
-            //   ),
-            // ),
             actions: <Widget>[
               IconButton(icon: Icon(Icons.notifications), onPressed: null),
             ],
-            centerTitle: true,
             backgroundColor: transparent,
             elevation: 0,
           ),
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(15.0),
-        child: Center(
-          child: Column(
-            // mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              // Container(
-              //   child: NaverMap(
-              //     onMapCreated: onMapCreated,
-              //     mapType: _mapType,
-              //   ),
-              // ),
-              // BlocBuilder<CounterBloc, int>(
-              //   builder: (context, count) {
-              //     return Text(
-              //       '$count',
-              //       style: TextStyle(fontSize: 48.0),
-              //     );
-              //   },
-              // ),
-              // SizedBox(height: 24.0),
-              GridView.builder(
-                itemCount: (categories.length <= 24 ? categories.length : 24),
-                shrinkWrap: true,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: categoryRowItemCount,
-                  crossAxisSpacing: categoryItemSpacing,
-                  mainAxisSpacing: categoryItemSpacing,
-                ),
-                itemBuilder: (context, index) {
-                  return Column(
-                    children: [
-                      Container(
-                        height: itemSize,
-                        width: itemSize,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage(categories[index].image),
-                            fit: BoxFit.cover,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(15.0),
+          child: Center(
+            child: Column(
+              // mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                // Container(
+                //   child: NaverMap(
+                //     onMapCreated: onMapCreated,
+                //     mapType: _mapType,
+                //   ),
+                // ),
+                // BlocBuilder<CounterBloc, int>(
+                //   builder: (context, count) {
+                //     return Text(
+                //       '$count',
+                //       style: TextStyle(fontSize: 48.0),
+                //     );
+                //   },
+                // ),
+                // SizedBox(height: 24.0),
+                GridView.builder(
+                  itemCount: (categories.length <= 24 ? categories.length : 24),
+                  shrinkWrap: true,
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: categoryRowItemCount,
+                    crossAxisSpacing: categoryItemSpacing,
+                    mainAxisSpacing: categoryItemSpacing,
+                  ),
+                  itemBuilder: (context, index) {
+                    return Column(
+                      children: [
+                        Container(
+                          height: itemSize,
+                          width: itemSize,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: AssetImage(categories[index].image),
+                              fit: BoxFit.cover,
+                            ),
+                            borderRadius: BorderRadius.circular(15),
                           ),
-                          borderRadius: BorderRadius.circular(15),
                         ),
+                        SizedBox(height: 2.0),
+                        Text(
+                          categories[index].name,
+                          style: const TextStyle(fontSize: 14.0),
+                        ),
+                      ],
+                    );
+                  },
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 30.0),
+                  child: InkWell(
+                    onTap: () => {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => CategoryPage()),
                       ),
-                      SizedBox(height: 2.0),
-                      Text(
-                        categories[index].name,
-                        style: const TextStyle(fontSize: 14.0),
+                    },
+                    child: Card(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
                       ),
-                    ],
-                  );
-                },
-              ),
-            ],
+                      elevation: 4,
+                      child: Column(
+                        children: [
+                          // 카드 이미지
+                          Container(
+                            height: 150,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.vertical(
+                                top: Radius.circular(10),
+                              ),
+                              image: DecorationImage(
+                                image: NetworkImage(
+                                  'https://picsum.photos/200',
+                                ),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                          // ListTile
+                          ListTile(
+                            title: Text('Do you know BTS?'),
+                            subtitle: Text('Find out where k-pop is related!'),
+                            trailing: Icon(Icons.arrow_forward),
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => CategoryPage()),
+                              );
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
