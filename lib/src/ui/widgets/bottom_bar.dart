@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class BottomBar extends StatefulWidget {
-  const BottomBar({super.key});
+  const BottomBar({Key? key});
 
   @override
   _BottomBarState createState() => _BottomBarState();
@@ -84,6 +84,22 @@ class _BottomBarState extends State<BottomBar>
               ),
             ),
           ],
+          onTap: (index) {
+            switch (index) {
+              case 0:
+                Navigator.of(context).pushNamed('/home'); // '/' 경로로 이동
+                break;
+              case 1:
+                Navigator.of(context).pushNamed('/search'); // '/search' 경로로 이동
+                break;
+              case 2:
+                Navigator.of(context).pushNamed('/saved'); // '/saved' 경로로 이동
+                break;
+              case 3:
+                Navigator.of(context).pushNamed('/more'); // '/more' 경로로 이동
+                break;
+            }
+          },
         ),
       ),
     );

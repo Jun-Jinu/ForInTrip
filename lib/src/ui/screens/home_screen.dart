@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import '../theme/app_color.dart';
 import '../widgets/bottom_bar.dart';
+import '../widgets/search_bar.dart';
+import '../widgets/default_appbar.dart';
+import '../widgets/category_button_bar.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:for_in_trip/src/bloc/home_bloc.dart';
 // import 'package:naver_map_plugin/naver_map_plugin.dart';
@@ -50,30 +53,7 @@ class HomeScreen extends StatelessWidget {
     // }
 
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(100.0),
-        child: Padding(
-          padding: const EdgeInsets.all(15.0),
-          child: AppBar(
-            title: Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                "ForInTrip",
-                style: TextStyle(
-                  fontSize: 30.0,
-                  fontWeight: FontWeight.w700,
-                  color: grey,
-                ),
-              ),
-            ),
-            actions: <Widget>[
-              IconButton(icon: Icon(Icons.notifications), onPressed: null),
-            ],
-            backgroundColor: transparent,
-            elevation: 0,
-          ),
-        ),
-      ),
+      appBar: const DefaultAppbar(),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(15.0),
@@ -81,6 +61,8 @@ class HomeScreen extends StatelessWidget {
             child: Column(
               // mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
+                const SearchBar(),
+                CategoryButtonBar(),
                 // Container(
                 //   child: NaverMap(
                 //     onMapCreated: onMapCreated,
