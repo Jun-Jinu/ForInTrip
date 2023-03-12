@@ -1,4 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:for_in_trip/src/ui/pages/home_page.dart';
+import 'package:for_in_trip/src/ui/pages/category_page.dart';
+
+// 화면 전환 애니메이션을 없애기위한 커스텀 위젯
+class NoAnimationPageRoute<T> extends MaterialPageRoute<T> {
+  NoAnimationPageRoute({required WidgetBuilder builder})
+      : super(builder: builder);
+
+  @override
+  Widget buildTransitions(BuildContext context, Animation<double> animation,
+      Animation<double> secondaryAnimation, Widget child) {
+    return child;
+  }
+}
 
 class BottomBar extends StatefulWidget {
   const BottomBar({Key? key});
@@ -87,16 +101,30 @@ class _BottomBarState extends State<BottomBar>
           onTap: (index) {
             switch (index) {
               case 0:
-                Navigator.of(context).pushNamed('/home'); // '/' 경로로 이동
+                Navigator.push(
+                  context,
+                  NoAnimationPageRoute(builder: (context) => const HomePage()),
+                );
                 break;
               case 1:
-                Navigator.of(context).pushNamed('/search'); // '/search' 경로로 이동
+                Navigator.push(
+                  context,
+                  NoAnimationPageRoute(
+                      builder: (context) => const CategoryPage()),
+                );
                 break;
               case 2:
-                Navigator.of(context).pushNamed('/saved'); // '/saved' 경로로 이동
+                Navigator.push(
+                  context,
+                  NoAnimationPageRoute(builder: (context) => const HomePage()),
+                );
                 break;
               case 3:
-                Navigator.of(context).pushNamed('/more'); // '/more' 경로로 이동
+                Navigator.push(
+                  context,
+                  NoAnimationPageRoute(
+                      builder: (context) => const CategoryPage()),
+                );
                 break;
             }
           },
