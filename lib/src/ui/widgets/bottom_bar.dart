@@ -15,7 +15,7 @@ class NoAnimationPageRoute<T> extends MaterialPageRoute<T> {
 }
 
 class BottomBar extends StatefulWidget {
-  const BottomBar({Key? key});
+  const BottomBar({super.key});
 
   @override
   _BottomBarState createState() => _BottomBarState();
@@ -24,6 +24,7 @@ class BottomBar extends StatefulWidget {
 class _BottomBarState extends State<BottomBar>
     with SingleTickerProviderStateMixin {
   TabController? _tabController;
+  int _selectedIndex = 0;
 
   @override
   void initState() {
@@ -43,8 +44,9 @@ class _BottomBarState extends State<BottomBar>
       color: Colors.black,
       child: Container(
         height: 60,
-        child: TabBar(
+        child: bottom(
           controller: _tabController, // TabController 연결
+          curr
           labelColor: Colors.white,
           unselectedLabelColor: Colors.white60,
           indicatorColor: Colors.transparent,
@@ -58,6 +60,7 @@ class _BottomBarState extends State<BottomBar>
                 '홈',
                 style: TextStyle(
                   fontSize: 9,
+                  color: _selectedIndex == 0 ? Colors.white : Colors.white60,
                 ),
               ),
             ),
@@ -70,6 +73,7 @@ class _BottomBarState extends State<BottomBar>
                 '검색',
                 style: TextStyle(
                   fontSize: 9,
+                  color: _selectedIndex == 1 ? Colors.white : Colors.white60,
                 ),
               ),
             ),
@@ -82,6 +86,7 @@ class _BottomBarState extends State<BottomBar>
                 '저장 목록',
                 style: TextStyle(
                   fontSize: 9,
+                  color: _selectedIndex == 2 ? Colors.white : Colors.white60,
                 ),
               ),
             ),
@@ -94,38 +99,38 @@ class _BottomBarState extends State<BottomBar>
                 '더 보기',
                 style: TextStyle(
                   fontSize: 9,
+                  color: _selectedIndex == 3 ? Colors.white : Colors.white60,
                 ),
               ),
             ),
           ],
           onTap: (index) {
-            switch (index) {
-              case 0:
-                Navigator.push(
-                  context,
-                  NoAnimationPageRoute(builder: (context) => const HomePage()),
-                );
-                break;
-              case 1:
-                Navigator.push(
-                  context,
-                  NoAnimationPageRoute(
-                      builder: (context) => const CategoryPage()),
-                );
-                break;
-              case 2:
-                Navigator.push(
-                  context,
-                  NoAnimationPageRoute(builder: (context) => const HomePage()),
-                );
-                break;
-              case 3:
-                Navigator.push(
-                  context,
-                  NoAnimationPageRoute(
-                      builder: (context) => const CategoryPage()),
-                );
-                break;
+            setState(() {
+              _selectedIndex = index;
+            });
+
+            if (index == 0) {
+              Navigator.push(
+                context,
+                NoAnimationPageRoute(builder: (context) => const HomePage()),
+              );
+            } else if (index == 1) {
+              Navigator.push(
+                context,
+                NoAnimationPageRoute(
+                    builder: (context) => const CategoryPage()),
+              );
+            } else if (index == 2) {
+              Navigator.push(
+                context,
+                NoAnimationPageRoute(builder: (context) => const HomePage()),
+              );
+            } else if (index == 3) {
+              Navigator.push(
+                context,
+                NoAnimationPageRoute(
+                    builder: (context) => const CategoryPage()),
+              );
             }
           },
         ),
