@@ -44,9 +44,8 @@ class _BottomBarState extends State<BottomBar>
       color: Colors.black,
       child: Container(
         height: 60,
-        child: bottom(
+        child: TabBar(
           controller: _tabController, // TabController 연결
-          curr
           labelColor: Colors.white,
           unselectedLabelColor: Colors.white60,
           indicatorColor: Colors.transparent,
