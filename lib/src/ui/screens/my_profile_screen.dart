@@ -46,10 +46,13 @@ class MyProfileScreen extends StatelessWidget {
                 subtitle: const Text('johndoe@example.com'),
               ),
             ),
-            ListView.builder(
+            GridView.builder(
               shrinkWrap: true,
-              itemCount: 4,
-              itemBuilder: (BuildContext context, int index) {
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                childAspectRatio: 2,
+              ),
+              itemBuilder: (context, index) {
                 return Padding(
                   padding: const EdgeInsets.symmetric(
                       vertical: 10.0, horizontal: 15.0),
@@ -69,6 +72,7 @@ class MyProfileScreen extends StatelessWidget {
                   ),
                 );
               },
+              itemCount: 4,
             ),
             ListTile(
               leading: Icon(Icons.notifications),
