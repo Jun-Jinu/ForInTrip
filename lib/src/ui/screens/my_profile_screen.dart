@@ -39,7 +39,11 @@ class MyProfileScreen extends StatelessWidget {
                 leading: Padding(
                   padding: const EdgeInsets.only(right: 15.0),
                   child: CircleAvatar(
-                    child: Icon(Icons.person),
+                    foregroundColor: gray4,
+                    child: Icon(
+                      Icons.person,
+                      color: gray5,
+                    ),
                   ),
                 ),
                 title: const Text('John Doe'),
@@ -56,17 +60,22 @@ class MyProfileScreen extends StatelessWidget {
                 return Padding(
                   padding: const EdgeInsets.symmetric(
                       vertical: 10.0, horizontal: 15.0),
-                  child: Card(
+                  child: Material(
                     elevation: 2,
-                    child: SizedBox(
-                      width: cardWidth,
-                      height: cardHeight,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text('123'),
-                          Text('Number'),
-                        ],
+                    borderRadius: BorderRadius.circular(10),
+                    clipBehavior: Clip.antiAlias,
+                    child: InkWell(
+                      onTap: () {},
+                      child: SizedBox(
+                        width: cardWidth,
+                        height: cardHeight,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text('123'),
+                            Text('Number'),
+                          ],
+                        ),
                       ),
                     ),
                   ),

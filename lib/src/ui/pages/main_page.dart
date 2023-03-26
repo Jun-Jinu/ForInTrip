@@ -5,8 +5,9 @@ import '../screens/category_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:for_in_trip/src/bloc/home_bloc.dart';
 
-import '../screens/search_screen.dart';
+import '../screens/trip_plan_screen.dart';
 import '../screens/my_profile_screen.dart';
+import '../screens/search_screen.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -54,7 +55,7 @@ class _MainPageState extends State<MainPage>
           children: <Widget>[
             const HomeScreen(),
             const CategoryScreen(),
-            SearchScreen(),
+            TripPlanScreen(),
             MyProfileScreen(),
           ],
         ),
