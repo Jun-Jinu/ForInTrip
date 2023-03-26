@@ -13,13 +13,6 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
       home: SplashScreen(),
-      // routes: {
-      //   '/': (context) => const SplashScreen(),
-      //   '/home': (context) => const HomePage(),
-      //   '/search': (context) => const CategoryPage(),
-      //   '/saved': (context) => const CategoryPage(),
-      //   '/more': (context) => const CategoryPage(),
-      // },
     );
   }
 }
