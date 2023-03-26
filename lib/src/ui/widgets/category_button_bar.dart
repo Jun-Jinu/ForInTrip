@@ -48,16 +48,17 @@ class _CategoryButtonBarState extends State<CategoryButtonBar> {
                   child: Text(
                     _buttonTitles[index],
                     style: TextStyle(
-                      color: _currentIndex == index ? white : lightGrey,
+                      color: _currentIndex == index ? white : gray3,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   style: ElevatedButton.styleFrom(
                     elevation: 0,
-                    backgroundColor: _currentIndex == index ? blue : white,
+                    backgroundColor:
+                        _currentIndex == index ? primaryColor : white,
                     shape: RoundedRectangleBorder(
                       side: BorderSide(
-                        color: lightGrey,
+                        color: gray5,
                       ),
                       borderRadius: BorderRadius.circular(20),
                     ),

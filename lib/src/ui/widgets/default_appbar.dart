@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import '../theme/app_color.dart';
+import '../pages/search_page.dart';
 
 class DefaultAppbar extends StatelessWidget with PreferredSizeWidget {
   const DefaultAppbar({super.key});
 
   @override
-  Size get preferredSize => Size.fromHeight(60);
+  Size get preferredSize => const Size.fromHeight(60);
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: Padding(
+      title: const Padding(
         padding: EdgeInsets.all(10.0),
         child: Text(
           "ForInTrip",
@@ -23,14 +24,21 @@ class DefaultAppbar extends StatelessWidget with PreferredSizeWidget {
       ),
       actions: <Widget>[
         Padding(
-          padding: EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(10.0),
           child: IconButton(
-            icon: Icon(
+            icon: const Icon(
               Icons.search,
               color: Color(0xFFFFA300),
               size: 30.0,
             ),
-            onPressed: null,
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const SearchPage(),
+                ),
+              );
+            },
           ),
         ),
       ],
