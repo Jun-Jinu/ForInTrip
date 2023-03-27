@@ -61,23 +61,6 @@ class HomeScreen extends StatelessWidget {
             child: Column(
               // mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                const SearchBar(),
-                CategoryButtonBar(),
-                // Container(
-                //   child: NaverMap(
-                //     onMapCreated: onMapCreated,
-                //     mapType: _mapType,
-                //   ),
-                // ),
-                // BlocBuilder<CounterBloc, int>(
-                //   builder: (context, count) {
-                //     return Text(
-                //       '$count',
-                //       style: TextStyle(fontSize: 48.0),
-                //     );
-                //   },
-                // ),
-                // SizedBox(height: 24.0),
                 GridView.builder(
                   itemCount: (categories.length <= 24 ? categories.length : 24),
                   shrinkWrap: true,

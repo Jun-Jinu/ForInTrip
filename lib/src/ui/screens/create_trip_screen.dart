@@ -10,32 +10,40 @@ class CreateTripScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor:
-            Colors.transparent, // set background color to transparent
-        leading: IconButton(
-          icon: Icon(
-            Icons.arrow_back,
-            color: gray1,
+        backgroundColor: Colors.transparent,
+        leading: Padding(
+          padding: const EdgeInsets.only(left: 16.0),
+          child: IconButton(
+            icon: Icon(
+              Icons.arrow_back,
+              size: 30.0,
+              color: gray1,
+            ),
+            onPressed: () {
+              Navigator.pop(context);
+            },
           ),
-          onPressed: () {
-            Navigator.pop(context);
-          },
         ),
         title: Text(
           'Create Trip',
           style: TextStyle(
             color: gray1,
             fontSize: 20.0,
+            fontWeight: FontWeight.bold,
           ),
         ),
         actions: <Widget>[
-          TextButton(
-            onPressed: () {},
-            child: Text(
-              'Done',
-              style: TextStyle(
-                color: gray1,
-                fontSize: 16.0,
+          Padding(
+            padding: const EdgeInsets.only(right: 16.0),
+            child: TextButton(
+              onPressed: () {},
+              child: Text(
+                'Done',
+                style: TextStyle(
+                  color: gray1,
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
           ),
@@ -78,9 +86,9 @@ class CreateTripScreen extends StatelessWidget {
                 ),
               ),
               TripCard(
-                imageUrl: "",
-                title: "123",
-                subtitle: "sub",
+                imageUrl: 'https://picsum.photos/200',
+                title: "Trip TITLE",
+                subtitle: "Lunch",
               ),
               Padding(
                 padding: const EdgeInsets.all(2.5),

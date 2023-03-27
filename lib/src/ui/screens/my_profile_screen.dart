@@ -17,7 +17,7 @@ class MyProfileScreen extends StatelessWidget {
           icon: Icon(Icons.arrow_back, color: gray1),
           onPressed: () => Navigator.of(context).pop(),
         ),
-        title: Text(
+        title: const Text(
           'MyProfile',
         ),
         titleSpacing: 0,
@@ -30,8 +30,8 @@ class MyProfileScreen extends StatelessWidget {
               decoration: BoxDecoration(
                 border: Border(
                   bottom: BorderSide(
-                    color: gray3,
-                    width: 1,
+                    color: gray6,
+                    width: 1.5,
                   ),
                 ),
               ),
@@ -57,6 +57,13 @@ class MyProfileScreen extends StatelessWidget {
                 childAspectRatio: 2,
               ),
               itemBuilder: (context, index) {
+                final List<String> titles = [
+                  'Coupon',
+                  'Orders',
+                  'Favorites',
+                  'Rewards'
+                ];
+                final List<int> counts = [0, 10, 5, 100];
                 return Padding(
                   padding: const EdgeInsets.symmetric(
                       vertical: 10.0, horizontal: 15.0),
@@ -72,8 +79,25 @@ class MyProfileScreen extends StatelessWidget {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text('123'),
-                            Text('Number'),
+                            Padding(
+                              padding: EdgeInsets.all(4.0),
+                              child: Text(
+                                counts[index].toString(),
+                                style: TextStyle(
+                                  fontSize: 16.0,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.all(4.0),
+                              child: Text(
+                                titles[index],
+                                style: TextStyle(
+                                  fontSize: 16.0,
+                                ),
+                              ),
+                            ),
                           ],
                         ),
                       ),
