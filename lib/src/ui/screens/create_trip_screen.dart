@@ -59,6 +59,24 @@ class CreateTripScreen extends StatelessWidget {
                   ),
                 ),
               ),
+              Padding(
+                padding: const EdgeInsets.all(2.5),
+                child: Card(
+                  color: gray6,
+                  child: SizedBox(
+                    width: double.infinity,
+                    height: 45,
+                    child: InkWell(
+                      onTap: () {},
+                      child: Icon(
+                        Icons.add,
+                        size: 36.0,
+                        color: gray3,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
               TripCard(
                 imageUrl: "",
                 title: "123",
