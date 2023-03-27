@@ -8,6 +8,7 @@ import 'package:for_in_trip/src/bloc/home_bloc.dart';
 import '../screens/trip_plan_screen.dart';
 import '../screens/my_profile_screen.dart';
 import '../screens/search_screen.dart';
+import '../screens/create_trip_screen.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -54,7 +55,7 @@ class _MainPageState extends State<MainPage>
           controller: _tabController,
           children: <Widget>[
             const HomeScreen(),
-            const CategoryScreen(),
+            const CreateTripScreen(),
             TripPlanScreen(),
             MyProfileScreen(),
           ],
@@ -75,7 +76,7 @@ class _MainPageState extends State<MainPage>
                     size: iconSize,
                   ),
                   child: Text(
-                    '홈',
+                    'Home',
                     style: TextStyle(
                       fontSize: textSize,
                       color: _selectedIndex == 0
@@ -86,11 +87,11 @@ class _MainPageState extends State<MainPage>
                 ),
                 Tab(
                   icon: const Icon(
-                    Icons.search,
+                    Icons.add_circle_outline,
                     size: iconSize,
                   ),
                   child: Text(
-                    '검색',
+                    'Create Trip',
                     style: TextStyle(
                       fontSize: textSize,
                       color: _selectedIndex == 1
@@ -101,11 +102,11 @@ class _MainPageState extends State<MainPage>
                 ),
                 Tab(
                   icon: const Icon(
-                    Icons.save_alt,
+                    Icons.list_alt,
                     size: iconSize,
                   ),
                   child: Text(
-                    '저장 목록',
+                    'Trip Manage',
                     style: TextStyle(
                       fontSize: textSize,
                       color: _selectedIndex == 2
@@ -116,11 +117,11 @@ class _MainPageState extends State<MainPage>
                 ),
                 Tab(
                   icon: const Icon(
-                    Icons.list,
+                    Icons.person,
                     size: iconSize,
                   ),
                   child: Text(
-                    '더 보기',
+                    'My Page',
                     style: TextStyle(
                       fontSize: textSize,
                       color: _selectedIndex == 3

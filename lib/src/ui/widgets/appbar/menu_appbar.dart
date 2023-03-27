@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class MenuAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
 
-  MenuAppBar({required this.title});
+  const MenuAppBar({super.key, required this.title});
 
   @override
   Widget build(BuildContext context) {

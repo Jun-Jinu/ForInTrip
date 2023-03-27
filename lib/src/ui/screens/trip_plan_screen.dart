@@ -1,5 +1,9 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import '../widgets/trip_card.dart';
+
+import '../theme/app_color.dart';
 
 class TripPlanScreen extends StatefulWidget {
   const TripPlanScreen({Key? key}) : super(key: key);
@@ -15,16 +19,16 @@ class _TripPlanScreenState extends State<TripPlanScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Trip Plan'),
+        title: const Text('Trip Plan'),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () => Navigator.of(context).pop(),
         ),
       ),
       body: Column(
         children: [
           SizedBox(
-            height: 50,
+            height: 100,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
@@ -40,18 +44,27 @@ class _TripPlanScreenState extends State<TripPlanScreen> {
                         border: _isComingTripSelected
                             ? Border(
                                 bottom: BorderSide(
-                                  color: Colors.black,
+                                  color: primaryColor,
                                   width: 2.0,
                                 ),
                               )
-                            : null,
+                            : Border(
+                                bottom: BorderSide(
+                                  color: gray5,
+                                  width: 2.0,
+                                ),
+                              ),
                       ),
-                      child: Text(
-                        'Coming Trip',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 18.0,
-                          fontWeight: FontWeight.w600,
+                      child: Padding(
+                        padding: const EdgeInsets.only(bottom: 15.0),
+                        child: Text(
+                          'Coming Trip',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: 18.0,
+                            fontWeight: FontWeight.w600,
+                            color: _isComingTripSelected ? primaryColor : gray5,
+                          ),
                         ),
                       ),
                     ),
@@ -69,18 +82,28 @@ class _TripPlanScreenState extends State<TripPlanScreen> {
                         border: !_isComingTripSelected
                             ? Border(
                                 bottom: BorderSide(
-                                  color: Colors.black,
+                                  color: primaryColor,
                                   width: 2.0,
                                 ),
                               )
-                            : null,
+                            : Border(
+                                bottom: BorderSide(
+                                  color: gray5,
+                                  width: 2.0,
+                                ),
+                              ),
                       ),
-                      child: Text(
-                        'All Trip',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 18.0,
-                          fontWeight: FontWeight.w600,
+                      child: Padding(
+                        padding: const EdgeInsets.only(bottom: 15.0),
+                        child: Text(
+                          'All Trip',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: 18.0,
+                            fontWeight: FontWeight.w600,
+                            color:
+                                !_isComingTripSelected ? primaryColor : gray5,
+                          ),
                         ),
                       ),
                     ),
