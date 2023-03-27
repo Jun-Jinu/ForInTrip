@@ -43,18 +43,30 @@ class CreateTripScreen extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(15.0),
-          child: Center(
-            child: Column(
-              children: <Widget>[
-                const SizedBox(height: 5.0),
-                TripCard(
-                  imageUrl: "",
-                  title: "123",
-                  subtitle: "sub",
+          padding: const EdgeInsets.all(25.0),
+          child: Column(
+            crossAxisAlignment:
+                CrossAxisAlignment.start, // align text to the left
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.all(2.5),
+                child: Container(
+                  padding: const EdgeInsets.all(8.0),
+                  child: const Text(
+                    "May 14th Plan",
+                    style:
+                        TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+                  ),
                 ),
-                const SizedBox(height: 5.0),
-                Card(
+              ),
+              TripCard(
+                imageUrl: "",
+                title: "123",
+                subtitle: "sub",
+              ),
+              Padding(
+                padding: const EdgeInsets.all(2.5),
+                child: Card(
                   color: gray6,
                   child: SizedBox(
                     width: double.infinity,
@@ -69,8 +81,8 @@ class CreateTripScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
