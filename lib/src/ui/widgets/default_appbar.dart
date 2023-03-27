@@ -34,8 +34,25 @@ class DefaultAppbar extends StatelessWidget with PreferredSizeWidget {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(
-                  builder: (context) => const SearchPage(),
+                PageRouteBuilder(
+                  pageBuilder: (context, animation, secondaryAnimation) =>
+                      const SearchPage(),
+                  transitionsBuilder:
+                      (context, animation, secondaryAnimation, child) {
+                    return SlideTransition(
+                      position: Tween<Offset>(
+                        begin: const Offset(0, 1),
+                        end: const Offset(0, 0),
+                      ).animate(
+                        CurvedAnimation(
+                          parent: animation,
+                          curve: Curves.easeOut,
+                          reverseCurve: Curves.easeIn,
+                        ),
+                      ),
+                      child: child,
+                    );
+                  },
                 ),
               );
             },
