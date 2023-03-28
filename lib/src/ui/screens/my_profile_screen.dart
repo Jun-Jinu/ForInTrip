@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../widgets/appbar/menu_appbar.dart';
 import '../theme/app_color.dart';
 
 class MyProfileScreen extends StatelessWidget {
@@ -8,19 +9,17 @@ class MyProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     const cardWidth = 100.0;
     const cardHeight = 80.0;
+    List<Map<String, dynamic>> menuItems = [
+      {'icon': Icons.notifications, 'title': 'Notice'},
+      {'icon': Icons.settings, 'title': 'Notification Settings'},
+      {'icon': Icons.language, 'title': 'Language'},
+      {'icon': Icons.logout, 'title': 'Logout'},
+      {'icon': Icons.headset_mic, 'title': 'Customer Center'},
+    ];
 
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.white,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: gray1),
-          onPressed: () => Navigator.of(context).pop(),
-        ),
-        title: const Text(
-          'MyProfile',
-        ),
-        titleSpacing: 0,
+      appBar: MenuAppBar(
+        title: "My Profile",
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -46,8 +45,8 @@ class MyProfileScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                title: const Text('John Doe'),
-                subtitle: const Text('johndoe@example.com'),
+                title: const Text('Jinu Jun'),
+                subtitle: const Text('jinujun@example.com'),
               ),
             ),
             GridView.builder(
@@ -107,30 +106,32 @@ class MyProfileScreen extends StatelessWidget {
               },
               itemCount: 4,
             ),
-            ListTile(
-              leading: Icon(Icons.notifications),
-              title: Text('Notice'),
-              onTap: () {},
+            Divider(
+              color: gray6,
+              thickness: 1.5,
             ),
-            ListTile(
-              leading: Icon(Icons.settings),
-              title: Text('Notification Settings'),
-              onTap: () {},
-            ),
-            ListTile(
-              leading: Icon(Icons.language),
-              title: Text('Language'),
-              onTap: () {},
-            ),
-            ListTile(
-              leading: Icon(Icons.logout),
-              title: Text('Logout'),
-              onTap: () {},
-            ),
-            ListTile(
-              leading: Icon(Icons.headset_mic),
-              title: Text('Customer Center'),
-              onTap: () {},
+            ListView.builder(
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
+              itemCount: menuItems.length,
+              itemBuilder: (BuildContext context, int index) {
+                return Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    border: Border(
+                      bottom: BorderSide(
+                        color: gray6,
+                        width: 1.0,
+                      ),
+                    ),
+                  ),
+                  child: ListTile(
+                    leading: Icon(menuItems[index]['icon']),
+                    title: Text(menuItems[index]['title']),
+                    onTap: () {},
+                  ),
+                );
+              },
             ),
           ],
         ),

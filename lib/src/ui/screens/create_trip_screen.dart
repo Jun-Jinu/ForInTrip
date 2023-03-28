@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../widgets/trip_card.dart';
+import '../widgets/appbar/menu_appbar.dart';
 import '../theme/app_color.dart';
 
 class CreateTripScreen extends StatelessWidget {
@@ -8,46 +9,10 @@ class CreateTripScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.transparent,
-        leading: Padding(
-          padding: const EdgeInsets.only(left: 16.0),
-          child: IconButton(
-            icon: Icon(
-              Icons.arrow_back,
-              size: 30.0,
-              color: gray1,
-            ),
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
-        ),
-        title: Text(
-          'Create Trip',
-          style: TextStyle(
-            color: gray1,
-            fontSize: 20.0,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        actions: <Widget>[
-          Padding(
-            padding: const EdgeInsets.only(right: 16.0),
-            child: TextButton(
-              onPressed: () {},
-              child: Text(
-                'Done',
-                style: TextStyle(
-                  color: gray1,
-                  fontSize: 20.0,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-          ),
-        ],
+      appBar: MenuAppBar(
+        title: "Create Trip",
+        isActionButton: true,
+        onActionButtonPressed: () {}, //Done의 콜백
       ),
       body: SingleChildScrollView(
         child: Padding(
