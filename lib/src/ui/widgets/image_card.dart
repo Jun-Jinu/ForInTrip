@@ -18,7 +18,7 @@ class ImageCard extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 10.0),
       child: SizedBox(
         width: double.infinity,
-        height: 120.0,
+        height: 140.0,
         child: Card(
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10.0),

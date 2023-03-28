@@ -131,6 +131,15 @@ class _TripPlanScreenState extends State<TripPlanScreen> {
               },
             ),
           ),
+          Positioned(
+            bottom: 16.0,
+            right: 16.0,
+            child: FloatingActionButton(
+              onPressed: () {},
+              heroTag: null,
+              child: Icon(Icons.add),
+            ),
+          ),
         ],
       ),
     );
