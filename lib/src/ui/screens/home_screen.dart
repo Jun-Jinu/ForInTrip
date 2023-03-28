@@ -8,6 +8,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:for_in_trip/src/bloc/home_bloc.dart';
 // import 'package:naver_map_plugin/naver_map_plugin.dart';
 import 'package:for_in_trip/src/ui/pages/category_page.dart';
+import '../widgets/image_card.dart';
 import 'dart:async';
 
 class Category {
@@ -61,6 +62,11 @@ class HomeScreen extends StatelessWidget {
             child: Column(
               // mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
+                const ImageCard(
+                  title: "this is title",
+                  subtitle: "subtitle",
+                  imageUrl: "https://picsum.photos/200",
+                ),
                 GridView.builder(
                   itemCount: (categories.length <= 24 ? categories.length : 24),
                   shrinkWrap: true,
