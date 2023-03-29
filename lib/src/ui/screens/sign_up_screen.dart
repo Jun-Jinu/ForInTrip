@@ -65,7 +65,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         ),
                       ),
                       TextSpan(
-                        text: 'Make your trip with us!',
+                        text: 'Make your own trip with us!',
                         style: TextStyle(
                           fontWeight: FontWeight.normal,
                           fontSize: 26.0,
