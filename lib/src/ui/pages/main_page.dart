@@ -10,6 +10,9 @@ import '../screens/my_profile_screen.dart';
 import '../screens/search_screen.dart';
 import '../screens/create_trip_screen.dart';
 
+//test pages
+import '../screens/sign_up_screen.dart';
+
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
 
@@ -54,7 +57,8 @@ class _MainPageState extends State<MainPage>
         body: TabBarView(
           controller: _tabController,
           children: <Widget>[
-            const HomeScreen(),
+            SignUpPage(),
+            // const HomeScreen(),
             const CreateTripScreen(),
             TripPlanScreen(),
             MyProfileScreen(),
