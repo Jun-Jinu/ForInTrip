@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../widgets/appbar/menu_appbar.dart';
+import '../screens/login_screen.dart';
 import '../theme/app_color.dart';
 
 class MyProfileScreen extends StatelessWidget {
@@ -24,29 +25,37 @@ class MyProfileScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
-              padding: const EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                border: Border(
-                  bottom: BorderSide(
-                    color: gray6,
-                    width: 1.5,
-                  ),
-                ),
-              ),
-              child: ListTile(
-                leading: Padding(
-                  padding: const EdgeInsets.only(right: 15.0),
-                  child: CircleAvatar(
-                    foregroundColor: gray4,
-                    child: Icon(
-                      Icons.person,
-                      color: gray5,
+            InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => LoginScreen()),
+                );
+              },
+              child: Container(
+                padding: const EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  border: Border(
+                    bottom: BorderSide(
+                      color: gray6,
+                      width: 1.5,
                     ),
                   ),
                 ),
-                title: const Text('Jinu Jun'),
-                subtitle: const Text('jinujun@example.com'),
+                child: ListTile(
+                  leading: Padding(
+                    padding: const EdgeInsets.only(right: 15.0),
+                    child: CircleAvatar(
+                      foregroundColor: gray4,
+                      child: Icon(
+                        Icons.person,
+                        color: gray5,
+                      ),
+                    ),
+                  ),
+                  title: const Text('Jinu Jun'),
+                  subtitle: const Text('jinujun@example.com'),
+                ),
               ),
             ),
             GridView.builder(
