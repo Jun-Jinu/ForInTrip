@@ -42,8 +42,39 @@ class _SignUpPageState extends State<SignUpPage> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Padding(
-                padding: EdgeInsets.symmetric(vertical: 16.0),
-                child: Text("Welcome to ForInTrip!\nMake your trip with us!"),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 32.0, horizontal: 8.0),
+                child: RichText(
+                  text: TextSpan(
+                    style: TextStyle(
+                      fontSize: 30.0,
+                      color: Colors.black,
+                    ),
+                    children: <TextSpan>[
+                      TextSpan(
+                        text: 'Welcome to ',
+                        style: TextStyle(
+                          fontWeight: FontWeight.normal,
+                        ),
+                      ),
+                      TextSpan(
+                        text: 'ForInTrip!\n',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: primaryColor,
+                        ),
+                      ),
+                      TextSpan(
+                        text: 'Make your trip with us!',
+                        style: TextStyle(
+                          fontWeight: FontWeight.normal,
+                          fontSize: 26.0,
+                          color: gray1,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ),
               SignUpTextFormField(
                 controller: _nicknameController,
