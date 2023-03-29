@@ -14,8 +14,8 @@ class MyProfileScreen extends StatelessWidget {
       {'icon': Icons.notifications, 'title': 'Notice'},
       {'icon': Icons.settings, 'title': 'Notification Settings'},
       {'icon': Icons.language, 'title': 'Language'},
-      {'icon': Icons.logout, 'title': 'Logout'},
       {'icon': Icons.headset_mic, 'title': 'Customer Center'},
+      {'icon': Icons.logout, 'title': 'Logout'},
     ];
 
     return Scaffold(
