@@ -1,10 +1,34 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import '../widgets/appbar/menu_appbar.dart';
 import '../screens/login_screen.dart';
 import '../theme/app_color.dart';
 
-class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({Key? key});
+import 'package:image_picker/image_picker.dart';
+
+class ProfileScreen extends StatefulWidget {
+  const ProfileScreen({super.key});
+
+  @override
+  _ProfileScreenState createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
+  late File _image;
+  final picker = ImagePicker();
+
+  Future getImage() async {
+    final pickedFile = await picker.pickImage(source: ImageSource.gallery);
+
+    setState(() {
+      if (pickedFile != null) {
+        _image = File(pickedFile.path);
+      } else {
+        print('No image selected.');
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +49,23 @@ class ProfileScreen extends StatelessWidget {
             },
           ),
         ),
+        actions: [
+          TextButton(
+            onPressed: () {
+              // Handle the "done" button press
+            },
+            child: Padding(
+              padding: const EdgeInsets.only(right: 16.0),
+              child: Text(
+                'Done',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20.0,
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         child: SizedBox(
@@ -38,22 +79,47 @@ class ProfileScreen extends StatelessWidget {
                 color: lightPrimaryColor,
               ),
               Positioned(
-                top: 130,
+                top: 100,
                 left: 0,
                 right: 0,
-                child: Center(
-                  child: Card(
-                    child: Container(
-                      width: 140,
-                      height: 140,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        image: DecorationImage(
-                          image: NetworkImage('https://example.com/image.jpg'),
-                          fit: BoxFit.cover,
+                child: Container(
+                  alignment: Alignment.center,
+                  width: 200,
+                  height: 200,
+                  child: Stack(
+                    children: [
+                      SizedBox(
+                        width: 140,
+                        height: 140,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(70),
+                          child: Image.network(
+                            'https://picsum.photos/200',
+                            fit: BoxFit.cover,
+                          ),
                         ),
                       ),
-                    ),
+                      Positioned(
+                        bottom: 0,
+                        right: 0,
+                        child: GestureDetector(
+                          onTap: getImage,
+                          child: Container(
+                            width: 40,
+                            height: 40,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Colors.white,
+                            ),
+                            child: Icon(
+                              Icons.camera_alt_outlined,
+                              size: 30,
+                              color: Colors.black,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),
@@ -81,28 +147,6 @@ class ProfileScreen extends StatelessWidget {
                             ),
                           ),
                           cursorColor: gray1,
-                        ),
-                        Positioned(
-                          bottom: 0,
-                          right: 0,
-                          child: GestureDetector(
-                            onTap: () {
-                              // Handle photo attachment functionality
-                            },
-                            child: Container(
-                              width: 40,
-                              height: 40,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Colors.white,
-                              ),
-                              child: Icon(
-                                Icons.photo_camera,
-                                size: 20,
-                                color: Colors.black,
-                              ),
-                            ),
-                          ),
                         ),
                       ],
                     ),

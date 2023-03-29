@@ -39,6 +39,7 @@ dependencies:
   flutter_bloc: ^8.1.2
   equatable: ^2.0.5
   naver_map_plugin: ^0.9.6
+  image_picker: ^0.8.7+1
 
 dev_dependencies:
   flutter_test:
