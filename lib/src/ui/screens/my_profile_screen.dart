@@ -3,6 +3,8 @@ import '../widgets/appbar/menu_appbar.dart';
 import '../screens/login_screen.dart';
 import '../theme/app_color.dart';
 
+import '../screens/menu_detail_screen.dart';
+
 class MyProfileScreen extends StatelessWidget {
   const MyProfileScreen({Key? key});
 
@@ -125,6 +127,8 @@ class MyProfileScreen extends StatelessWidget {
               itemCount: menuItems.length,
               itemBuilder: (BuildContext context, int index) {
                 return Container(
+                  alignment: Alignment.center,
+                  height: 60.0,
                   decoration: BoxDecoration(
                     color: Colors.white,
                     border: Border(
@@ -136,8 +140,19 @@ class MyProfileScreen extends StatelessWidget {
                   ),
                   child: ListTile(
                     leading: Icon(menuItems[index]['icon']),
-                    title: Text(menuItems[index]['title']),
-                    onTap: () {},
+                    title: Text(
+                      menuItems[index]['title'],
+                      style: TextStyle(
+                        fontSize: 18.0,
+                      ),
+                    ),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => MenuDetailScreen()),
+                      );
+                    },
                   ),
                 );
               },
