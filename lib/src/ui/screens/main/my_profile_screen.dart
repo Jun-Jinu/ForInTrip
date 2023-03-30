@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import '../widgets/appbar/menu_appbar.dart';
-import '../screens/login_screen.dart';
-import '../theme/app_color.dart';
+import '../../widgets/appbar/menu_appbar.dart';
+import '../member_management/login_screen.dart';
+import '../../theme/app_color.dart';
 
-import '../screens/menu_detail_screen.dart';
+import '../my_page_menu/menu_detail_screen.dart';
 
 class MyProfileScreen extends StatelessWidget {
   const MyProfileScreen({Key? key});

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../widgets/sign_up_text_form_field.dart';
-import '../widgets/appbar/menu_appbar.dart';
-import '../theme/app_color.dart';
+import '../../widgets/sign_up_text_form_field.dart';
+import '../../widgets/appbar/menu_appbar.dart';
+import '../../theme/app_color.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});

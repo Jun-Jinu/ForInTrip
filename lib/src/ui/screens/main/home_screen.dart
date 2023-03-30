@@ -101,10 +101,10 @@ class HomeScreen extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(vertical: 30.0),
                   child: InkWell(
                     onTap: () => {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => CategoryPage()),
-                      ),
+                      // Navigator.push(
+                      //   context,
+                      //   MaterialPageRoute(builder: (context) => CategoryPage()),
+                      // ),
                     },
                     child: Card(
                       shape: RoundedRectangleBorder(
@@ -134,11 +134,11 @@ class HomeScreen extends StatelessWidget {
                             subtitle: Text('Find out where k-pop is related!'),
                             trailing: Icon(Icons.arrow_forward),
                             onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => CategoryPage()),
-                              );
+                              // Navigator.push(
+                              //   context,
+                              //   MaterialPageRoute(
+                              //       builder: (context) => CategoryPage()),
+                              // );
                             },
                           ),
                         ],

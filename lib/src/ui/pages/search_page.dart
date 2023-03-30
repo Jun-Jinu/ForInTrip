@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../screens/search_screen.dart';
+import '../screens/common_menu/search_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:for_in_trip/src/bloc/home_bloc.dart';
 

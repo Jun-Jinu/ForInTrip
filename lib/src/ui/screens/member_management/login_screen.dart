@@ -1,9 +1,9 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import '../widgets/sign_up_text_form_field.dart';
-import '../widgets/appbar/menu_appbar.dart';
-import '../theme/app_color.dart';
-import './sign_up_screen.dart';
+import '../../widgets/sign_up_text_form_field.dart';
+import '../../widgets/appbar/menu_appbar.dart';
+import '../../theme/app_color.dart';
+import 'sign_up_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});

@@ -1,9 +1,9 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import '../widgets/appbar/menu_appbar.dart';
-import '../screens/login_screen.dart';
-import '../theme/app_color.dart';
+import '../../widgets/appbar/menu_appbar.dart';
+import '../member_management/login_screen.dart';
+import '../../theme/app_color.dart';
 
 import 'package:image_picker/image_picker.dart';
 
