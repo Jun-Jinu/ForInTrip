@@ -5,6 +5,8 @@ import '../../theme/app_color.dart';
 
 import '../my_page_menu/menu_detail_screen.dart';
 
+import '../../screens/trip/trip_detail_screen.dart';
+
 class MyProfileScreen extends StatelessWidget {
   const MyProfileScreen({Key? key});
 
@@ -150,7 +152,8 @@ class MyProfileScreen extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => MenuDetailScreen()),
+                            // builder: (context) => MenuDetailScreen()),
+                            builder: (context) => TripDetailScreen()),
                       );
                     },
                   ),
