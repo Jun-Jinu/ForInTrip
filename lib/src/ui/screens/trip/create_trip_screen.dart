@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../widgets/trip_card.dart';
-import '../widgets/appbar/menu_appbar.dart';
-import '../theme/app_color.dart';
+import '../../widgets/card/trip_card.dart';
+import '../../widgets/appbar/menu_appbar.dart';
+import '../../theme/app_color.dart';
 
 class CreateTripScreen extends StatelessWidget {
   const CreateTripScreen({Key? key});

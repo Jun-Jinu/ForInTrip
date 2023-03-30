@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import '../theme/app_color.dart';
-import '../widgets/bottom_bar.dart';
-import '../widgets/search_bar.dart';
-import '../widgets/default_appbar.dart';
-import '../widgets/category_button_bar.dart';
+import '../../theme/app_color.dart';
+import '../../widgets/bottom_bar.dart';
+import '../../widgets/search_bar.dart';
+import '../../widgets/appbar/default_appbar.dart';
+import '../../widgets/category_button_bar.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:for_in_trip/src/bloc/home_bloc.dart';
 // import 'package:naver_map_plugin/naver_map_plugin.dart';
-import 'package:for_in_trip/src/ui/pages/category_page.dart';
-import '../widgets/image_card.dart';
+import '../../widgets/card/image_card.dart';
 import 'dart:async';
 
 class Category {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../widgets/appbar/menu_appbar.dart';
-import '../theme/app_color.dart';
+import '../../widgets/appbar/menu_appbar.dart';
+import '../../theme/app_color.dart';
 
 class MenuDetailScreen extends StatelessWidget {
   const MenuDetailScreen({Key? key});

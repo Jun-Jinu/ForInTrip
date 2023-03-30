@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:for_in_trip/src/ui/pages/splash_page.dart';
-import 'package:for_in_trip/src/ui/screens/splash_screen.dart';
-import 'package:for_in_trip/src/ui/pages/home_page.dart';
-import 'package:for_in_trip/src/ui/pages/category_page.dart';
+import 'package:for_in_trip/src/ui/screens/common_menu/splash_screen.dart';
 
 class App extends StatelessWidget {
   const App({super.key});

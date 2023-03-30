@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../theme/app_color.dart';
-import '../pages/search_page.dart';
+import '../../theme/app_color.dart';
+import '../../pages/search_page.dart';
 
 class DefaultAppbar extends StatelessWidget with PreferredSizeWidget {
   const DefaultAppbar({super.key});

@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
-import '../screens/home_screen.dart';
-import '../screens/category_screen.dart';
+import '../screens/main/home_screen.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:for_in_trip/src/bloc/home_bloc.dart';
 
-import '../screens/trip_plan_screen.dart';
-import '../screens/my_profile_screen.dart';
-import '../screens/search_screen.dart';
-import '../screens/create_trip_screen.dart';
+import '../screens/trip/trip_plan_screen.dart';
+import '../screens/main/my_profile_screen.dart';
+import '../screens/common_menu/search_screen.dart';
+import '../screens/trip/create_trip_screen.dart';
 
 //test pages
-import '../screens/sign_up_screen.dart';
-import '../screens/login_screen.dart';
+import '../screens/member_management/sign_up_screen.dart';
+import '../screens/member_management/login_screen.dart';
 
-import '../screens/profile.dart';
-import '../screens/menu_detail_screen.dart';
+import '../screens/my_page_menu/profile.dart';
+import '../screens/my_page_menu/menu_detail_screen.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});

@@ -157,6 +157,21 @@ class MyProfileScreen extends StatelessWidget {
                 );
               },
             ),
+            // 비밀번호 변경 위젯
+            Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Text("비밀번호 변경"),
+            ),
+            // 회원 탈퇴 위젯
+            Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Text("Cancellation"),
+            ),
+            // 버전 표시 위젯
+            Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Text("V 1.0.0"),
+            ),
           ],
         ),
       ),
