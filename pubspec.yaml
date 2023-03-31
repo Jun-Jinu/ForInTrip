@@ -41,6 +41,7 @@ dependencies:
   naver_map_plugin: ^0.9.6
   image_picker: ^0.8.7+1
   carousel_slider: ^4.2.1
+  syncfusion_flutter_datepicker: ^21.1.37
 
 dev_dependencies:
   flutter_test:
