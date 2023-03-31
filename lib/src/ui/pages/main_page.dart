@@ -8,6 +8,7 @@ import '../screens/trip/trip_plan_screen.dart';
 import '../screens/main/my_profile_screen.dart';
 import '../screens/common_menu/search_screen.dart';
 import '../screens/trip/create_trip_screen.dart';
+import '../screens/trip/create_trip_intro_screen.dart';
 
 //test pages
 import '../screens/member_management/sign_up_screen.dart';
@@ -64,7 +65,8 @@ class _MainPageState extends State<MainPage>
             // const HomeScreen(),
             // MenuDetailScreen(),
             TripDetailScreen(),
-            const CreateTripScreen(),
+            // const CreateTripScreen(),
+            CreateTripIntroScreen(),
             TripPlanScreen(),
             MyProfileScreen(),
           ],

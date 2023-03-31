@@ -14,7 +14,7 @@ class TripDetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MenuAppBar(
-        title: "Trip Details",
+        title: "Place Details",
       ),
       body: SingleChildScrollView(
         child: Column(
