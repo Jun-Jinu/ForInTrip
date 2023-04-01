@@ -1,9 +1,11 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:for_in_trip/src/ui/screens/trip/create_trip_screen.dart';
 import '../../widgets/card/trip_card.dart';
 import '../../widgets/appbar/menu_appbar.dart';
 import '../../theme/app_color.dart';
+import '../trip/create_trip_intro_screen.dart';
 
 class TripPlanScreen extends StatefulWidget {
   const TripPlanScreen({Key? key}) : super(key: key);
@@ -144,7 +146,13 @@ class _TripPlanScreenState extends State<TripPlanScreen> {
               backgroundColor: primaryColor,
               focusColor: lightPrimaryColor,
               splashColor: lightPrimaryColor,
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => CreateTripIntroScreen()),
+                );
+              },
               heroTag: null,
               child: Icon(
                 Icons.add,

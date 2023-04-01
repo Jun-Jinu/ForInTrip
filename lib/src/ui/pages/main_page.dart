@@ -62,9 +62,8 @@ class _MainPageState extends State<MainPage>
         body: TabBarView(
           controller: _tabController,
           children: <Widget>[
-            // const HomeScreen(),
+            const HomeScreen(),
             // MenuDetailScreen(),
-            TripDetailScreen(),
             // const CreateTripScreen(),
             CreateTripIntroScreen(),
             TripPlanScreen(),

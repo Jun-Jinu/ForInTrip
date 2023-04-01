@@ -4,16 +4,21 @@ class TripCard extends StatelessWidget {
   final String imageUrl;
   final String title;
   final String subtitle;
+  final Function()? onTap;
 
-  TripCard(
-      {required this.imageUrl, required this.title, required this.subtitle});
+  TripCard({
+    required this.imageUrl,
+    required this.title,
+    required this.subtitle,
+    this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Card(
       elevation: 2,
       child: InkWell(
-        onTap: () {},
+        onTap: onTap,
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Row(

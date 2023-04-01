@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
-
+import 'package:intl/intl.dart';
 import 'package:for_in_trip/src/ui/widgets/appbar/menu_appbar.dart';
 import 'package:for_in_trip/src/ui/theme/app_color.dart';
 import 'package:syncfusion_flutter_datepicker/datepicker.dart';
+
+import '../../widgets/place_menu_container.dart';
+import '../trip/create_trip_screen.dart';
 
 class CreateTripIntroScreen extends StatefulWidget {
   @override
@@ -12,7 +15,10 @@ class CreateTripIntroScreen extends StatefulWidget {
 class _CreateTripIntroScreenState extends State<CreateTripIntroScreen> {
   final _formKey = GlobalKey<FormState>();
   TextEditingController _tripNameController = TextEditingController();
-  DateTimeRange? _dateRange;
+  DateTimeRange? _dateRange = DateTimeRange(
+    start: DateTime.now(),
+    end: DateTime.now().add(Duration(days: 1)),
+  );
 
   Future<void> _selectDateRange(BuildContext context) async {
     final initialDateRange = DateTimeRange(
@@ -23,7 +29,7 @@ class _CreateTripIntroScreenState extends State<CreateTripIntroScreen> {
       context: context,
       builder: (BuildContext context) {
         return Container(
-          height: 300,
+          height: 500,
           child: SfDateRangePicker(
             selectionMode: DateRangePickerSelectionMode.range,
             initialSelectedRange: PickerDateRange(
@@ -38,6 +44,10 @@ class _CreateTripIntroScreenState extends State<CreateTripIntroScreen> {
                 );
               });
             },
+            selectionColor: lightPrimaryColor,
+            startRangeSelectionColor: lightPrimaryColor,
+            endRangeSelectionColor: lightPrimaryColor,
+            rangeSelectionColor: lightPrimaryColor,
           ),
         );
       },
@@ -109,34 +119,36 @@ class _CreateTripIntroScreenState extends State<CreateTripIntroScreen> {
                 },
               ),
               SizedBox(height: 16.0),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'Travel Start: ',
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                  ),
-                  SizedBox(width: 16),
-                  Icon(Icons.arrow_right),
-                  SizedBox(width: 16),
-                  Text(
-                    'Travel End: ',
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                  ),
-                ],
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  _selectDateRange(context);
-                },
-                child: Text('Select Date Range'),
+              InkWell(
+                onTap: () => _selectDateRange(context),
+                child: PlaceMenuContainer(
+                  title: "Date of trip",
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Text(
+                          '${DateFormat('MM/dd/yyyy').format(_dateRange!.start.toLocal())}',
+                          style: TextStyle(
+                              fontSize: 16, fontWeight: FontWeight.bold),
+                        ),
+                        Icon(Icons.arrow_right),
+                        Text(
+                          '${DateFormat('MM/dd/yyyy').format(_dateRange!.end.toLocal())}',
+                          style: TextStyle(
+                              fontSize: 16, fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          ' (${_dateRange!.end.difference(_dateRange!.start).inDays + 1} days)',
+                          style: TextStyle(
+                              fontSize: 16, fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
               SizedBox(height: 16.0),
-              if (_dateRange != null)
-                Text(
-                  'Selected Date Range: ${_dateRange!.start.toLocal()} - ${_dateRange!.end.toLocal()}',
-                  style: TextStyle(fontSize: 16),
-                ),
               Expanded(
                 child: Align(
                   alignment: Alignment.bottomCenter,
@@ -156,12 +168,15 @@ class _CreateTripIntroScreenState extends State<CreateTripIntroScreen> {
 
                             // TODO: Do something with the data
 
-                            // Navigate back to previous screen
-                            Navigator.pop(context);
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => CreateTripScreen()),
+                            );
                           }
                         },
                         child: Text(
-                          "Submit",
+                          "Creating a New Journey",
                           style: TextStyle(
                             fontSize: 16.0,
                             fontWeight: FontWeight.bold,

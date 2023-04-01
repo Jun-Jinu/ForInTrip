@@ -3,6 +3,8 @@ import '../../widgets/card/trip_card.dart';
 import '../../widgets/appbar/menu_appbar.dart';
 import '../../theme/app_color.dart';
 
+import '../trip/trip_detail_screen.dart';
+
 class CreateTripScreen extends StatelessWidget {
   const CreateTripScreen({Key? key});
 
@@ -54,6 +56,12 @@ class CreateTripScreen extends StatelessWidget {
                 imageUrl: 'https://picsum.photos/200',
                 title: "Trip TITLE",
                 subtitle: "Lunch",
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => TripDetailScreen()),
+                  );
+                },
               ),
               Padding(
                 padding: const EdgeInsets.all(2.5),
