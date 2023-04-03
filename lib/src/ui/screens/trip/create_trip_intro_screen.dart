@@ -6,6 +6,7 @@ import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 
 import '../../widgets/place_menu_container.dart';
 import '../trip/create_trip_screen.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 class CreateTripIntroScreen extends StatefulWidget {
   @override
@@ -62,6 +63,10 @@ class _CreateTripIntroScreenState extends State<CreateTripIntroScreen> {
     }
   }
 
+  // WebViewController _webViewController = WebViewController()
+  //   ..loadRequest(Uri.parse('https://youtube.com'))
+  //   ..setJavaScriptMode(JavaScriptMode.unrestricted);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -73,6 +78,9 @@ class _CreateTripIntroScreenState extends State<CreateTripIntroScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              // Expanded(
+              //   child: WebViewWidget(controller: _webViewController),
+              // ),
               Padding(
                 padding:
                     const EdgeInsets.symmetric(vertical: 20.0, horizontal: 8.0),
@@ -108,15 +116,18 @@ class _CreateTripIntroScreenState extends State<CreateTripIntroScreen> {
                   ),
                 ),
               ),
-              TextFormField(
-                controller: _tripNameController,
-                decoration: InputDecoration(labelText: 'Trip Name'),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter a trip name';
-                  }
-                  return null;
-                },
+              SizedBox(
+                height: 100,
+                child: TextFormField(
+                  controller: _tripNameController,
+                  decoration: InputDecoration(labelText: 'Trip Name'),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter a trip name';
+                    }
+                    return null;
+                  },
+                ),
               ),
               SizedBox(height: 16.0),
               InkWell(

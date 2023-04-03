@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 import '../../theme/app_color.dart';
 import '../../widgets/bottom_bar.dart';
 import '../../widgets/search_bar.dart';

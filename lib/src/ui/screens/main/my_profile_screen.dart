@@ -4,6 +4,7 @@ import '../member_management/login_screen.dart';
 import '../../theme/app_color.dart';
 
 import '../my_page_menu/menu_detail_screen.dart';
+import '../my_page_menu/notice_screen.dart';
 
 import '../../screens/trip/trip_detail_screen.dart';
 
@@ -14,14 +15,22 @@ class MyProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     const cardWidth = 100.0;
     const cardHeight = 80.0;
-    List<Map<String, dynamic>> menuItems = [
-      {'icon': Icons.notifications, 'title': 'Notice'},
-      {'icon': Icons.settings, 'title': 'Notification Settings'},
-      {'icon': Icons.language, 'title': 'Language'},
-      {'icon': Icons.headset_mic, 'title': 'Customer Center'},
-      {'icon': Icons.logout, 'title': 'Logout'},
-    ];
 
+    List<Map<String, dynamic>> menuItems = [
+      {'icon': Icons.notifications, 'title': 'Notice', 'page': NoticeScreen()},
+      {
+        'icon': Icons.settings,
+        'title': 'Notification Settings',
+        'page': NoticeScreen()
+      },
+      {'icon': Icons.language, 'title': 'Language', 'page': NoticeScreen()},
+      {
+        'icon': Icons.headset_mic,
+        'title': 'Customer Center',
+        'page': NoticeScreen()
+      },
+      {'icon': Icons.logout, 'title': 'Logout', 'page': NoticeScreen()},
+    ];
     return Scaffold(
       appBar: MenuAppBar(
         title: "My Profile",
@@ -152,8 +161,7 @@ class MyProfileScreen extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            // builder: (context) => MenuDetailScreen()),
-                            builder: (context) => TripDetailScreen()),
+                            builder: (context) => menuItems[index]['page']),
                       );
                     },
                   ),
