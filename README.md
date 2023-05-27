@@ -1,16 +1,10 @@
-# for_in_trip
+# 여행 가이드 서비스 ForInTrip
 
-포인트립 여행 가이드 서비스
+## 주요 기능
+- 유명한 한국 여행지 추천
+- 힌국 여행 계획 가이드 및 정리
+- 여행 기록
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 개발 진행중인 UI/UX
+<img width="1500" alt="ForInTrip1" src="https://github.com/Jun-Jinu/ForInTrip/assets/81470586/ee129221-1ee2-4d99-95cb-6baf46e83869">
+<img width="1500" alt="ForInTrip2" src="https://github.com/Jun-Jinu/ForInTrip/assets/81470586/ec2373c8-032f-4eba-9514-a5dea64f4150">
